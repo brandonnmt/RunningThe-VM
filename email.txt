@@ -1,0 +1,27 @@
+[Don]    To assist in learning all the above material, I can recommend courses on Udemy by John Thompson (a.k.a., Spring Framework Guru).  The current OpenESPI repositories use Spring Framework 4.06 but do not support the Spring Boot project.  John has courses based on both Spring Framework 4.0 and Spring Boot.  He typically holds monthly sales for his courses which run about $11.00 per course.  Many of his courses also provide access to course specific slack channels.
+
+ 
+
+A question I have is what exactly will the repositories found on the GitHub ultimately create?  I am having a hard time trying to wrap my head around what is going on.  For example, if I compile and run the projects: OpenESPI-Common-java, OpenESPI-DataCustodian-java, and OpenESPI-ThirdParty-java, will this create a locally run webpage that essentially mirrors/duplicates the sandboxes that were mentioned in their respective repositories(DC and TP)?
+
+ 
+
+[Don]    The OpenESPI-Common-java repository contains the logic that defines the data structure of the “NAESB REQ.21 ESPI” standard resources.  This includes the XML format for transmission as well as the layout for the local MySQL database table structures.  It also includes all of the required Spring Framework, Spring Security and Spring Security OAuth logic to store and retrieve the data from the database.  It creates a Java .JAR file the other two repositories rely on to retrieve and process the data.
+
+The OpenESPI-ThirdParty-java repository is used to create a client application that can access a utility (i.e., Data Custodian) webserver to request and retrieve data.  A typical Third Party application then provides an analysis of the retrieved data for the utility’s customer.  The OpenESPI-ThirdParty-java repository does not contain any analytical logic.
+
+The OpenESPI-DataCustodian-java repository is used to create a Data Custodian (i.e., utility) webserver application that transmits the Energy Usage Information (EUI) and Personal Identifiable Information (PII) a utility customer has authorized a Third Party client to access.
+
+The current version of the OpenESPI repositories does not support the latest version of the “NAESB REQ.21 ESPI ver 3.3” standard and are currently being upgraded.
+
+ 
+
+Also, I have attempted to compile and run the repositories to no avail.  I am able to 'git clone' the repositories, build the Common-java repository, but am failing to build the DC/TP-java repositories.  Is there a more beginner friendly step-by-step guide that I am able to look at?  I feel as though I am doing something wrong, but have no idea as to what I am doing wrong.
+
+ 
+
+[Don]    There may be several reasons why you are encountering issues building the DC/TP repositories.  Without a better description of the issues, you are encountering, it is impossible to provide any information that might assist in resolving the issues.
+
+The Green Button Alliance provides a Third Party and Data Custodian sample application you can access to see what the OpenESPI repositories generate.  The is also an API Documentation website that documents and allows developers to access the supported APIs and the format of the expected responses.
+
+If you are looking for a source of documentation for a current utility implementation of the Green Button Initiative, I recommend you review the Pacific Gas & Electric (PG&E) utility’s “Share My Data for third parties” website.
